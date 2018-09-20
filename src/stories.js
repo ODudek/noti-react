@@ -6,7 +6,7 @@ import { text, boolean } from "@storybook/addon-knobs/react";
 // Import our component from this folder
 import { Notification } from './notification';
 
-storiesOf("Components/Button", module).addWithJSX("Primary",
+storiesOf("Components/Notification", module).addWithJSX("Default",
     wInfo(`
     ### Notes
     This is a button
@@ -19,6 +19,8 @@ storiesOf("Components/Button", module).addWithJSX("Primary",
     />
     ~~~`)
     (() => (
-        <Notification />
+        <Notification
+            label="test"
+        />
     ))
 )
