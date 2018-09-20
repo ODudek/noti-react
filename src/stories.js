@@ -24,6 +24,7 @@ storiesOf('Components/Notification', module).addWithJSX('Default',
 	(() => (
 		<Notification
 			label="Let me know when you give up."
+			animationTime={1000}
 		/>
 	))
 ).addWithJSX('Success',

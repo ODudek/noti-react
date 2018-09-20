@@ -5,7 +5,7 @@ export const colors = {
 	warn: '#FCD63F',
 };
 
-export const showAnimation = (time = 500) => ({ animation: `moveIn ${time}ms` });
+export const showAnimation = (time) => ({ animation: `moveIn ${time}ms` });
 
-export const hideAnimation = (time = 500) => ({ animation: `moveOut ${time}ms` });
+export const hideAnimation = (time) => ({ animation: `moveOut ${time}ms` });
 
