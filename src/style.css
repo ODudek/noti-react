@@ -1,7 +1,67 @@
-:root {
-	--white: #ffffff;
-	--success: #62918C;
-	--info: #72ACD6;
-	--error: #EE665F;
-	--warn: #FCD63F;
+.notification {
+	width: 500px;
+	height: 60px;
+	box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.1), 0 2px 2px 0 rgba(0, 0, 0, 0.1);
+	position: fixed;
+	top: 0;
+	left: 0;
+	display: flex;
+	align-items: center;
+}
+
+.box {
+	height: 60px;
+	width: 60px;
+}
+
+.message {
+	margin-left: 30px;
+}
+
+.message > p {
+	margin: 0;
+	overflow: hidden;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+	width: 350px;
+	color: #585959;
+	font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+
+.flex-center {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.close {
+	cursor: pointer;
+}
+
+.show {
+	animation: moveIn 0.5s;
+}
+
+@keyframes moveIn {
+	0% {
+        transform: translateY(100px);
+        visibility: hidden;        
+	}
+	100% {
+        transform: translateY(0);
+        visibility: visible;        
+	}
+}
+
+@keyframes moveOut {
+	0% {
+        transform: translateY(0);
+        opacity: 1;
+        visibility: visible;
+	}
+	100% {
+	    transform: translateY(-100px);
+        opacity: 0;
+        visibility: hidden;
+	}
 }
