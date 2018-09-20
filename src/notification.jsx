@@ -6,7 +6,7 @@ import { Info, Done, Close } from './Icons';
 
 export class Notification extends Component {
 	state = {
-		color: colors[this.props.type] || '#72ACD6',
+		color: colors[this.props.type] || "#72ACD6",
 		shouldClose: false,
 	};
 

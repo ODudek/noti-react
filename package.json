@@ -13,12 +13,16 @@
     "@storybook/react": "^3.4.11",
     "babel-core": "^6.26.3",
     "eslint": "^5.6.0",
+    "eslint-plugin-react": "^7.11.1",
+    "pre-commit": "^1.2.2",
     "storybook-addon-jsx": "^5.4.0"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "start-storybook -p 6006 -c .storybook"
+    "dev": "start-storybook -p 6006 -c .storybook",
+    "lint": "eslint ./ --cache --ignore-pattern .gitignore"
   },
+  "pre-commit": [ "lint" ],
   "repository": {
     "type": "git",
     "url": "git+https://github.com/ODudek/noti-react.git"
