@@ -1,0 +1,28 @@
+{
+  "name": "noti-react",
+  "version": "0.0.1",
+  "description": "Simple notification component",
+  "main": "index.js",
+  "dependencies": {
+    "react": "^16.5.2",
+    "react-dom": "^16.5.2"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ODudek/noti-react.git"
+  },
+  "keywords": [
+    "react",
+    "notification"
+  ],
+  "author": "ODudek dudek.olek4@gmail.com",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ODudek/noti-react/issues"
+  },
+  "homepage": "https://github.com/ODudek/noti-react#readme"
+}
