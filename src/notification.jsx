@@ -10,20 +10,35 @@ export class Notification extends Component {
 		shouldClose: false,
 		startAnimation: false,
 	};
+	autoHide = null;
+
+	getTimeout = () => this.props.hideTime - this.props.animationTime;
+
+	autoClose = () => {
+		const { startAnimation, shouldClose } = this.state;
+		if (!shouldClose && !startAnimation) {
+			this.autoHide = setTimeout(() => {
+				this.closeNotification();
+			}, this.getTimeout());
+		} else {
+			clearTimeout(this.autoHide);
+		}
+	}
 
 	closeNotification = () => {
 		this.setState(() => ({ startAnimation: true }))
-		setTimeout(() => this.setState(() => ({ shouldClose: true })), this.props.animationTime || 500)
+		setTimeout(() => this.setState(() => ({ shouldClose: true })), this.props.animationTime)
 	}
 
 	getIcon = () => this.state.color === colors.success ? <Done /> : <Info />;
 
 	render() {
 		const { label, animationTime } = this.props;
-		const { color, startAnimation } = this.state;
+		const { color, startAnimation, shouldClose } = this.state;
 		const icon = this.getIcon();
-		const getClass = startAnimation ? hideAnimation(animationTime || 500) : showAnimation(animationTime || 500);
-		if (this.state.shouldClose) return null;
+		const getClass = startAnimation ? hideAnimation(animationTime) : showAnimation(animationTime);
+		this.autoClose();
+		if (shouldClose) return null;
 
 		return (
 			<div className="notification" style={getClass}>
@@ -46,5 +61,13 @@ Notification.propTypes = {
 	label: propTypes.string.isRequired,
 	autoHide: propTypes.bool,
 	animationTime: propTypes.number,
-	position: propTypes.string
+	position: propTypes.string,
+	hideTime: propTypes.number,
+};
+
+Notification.defaultProps = {
+	type: 'info',
+	autoHide: true,
+	animationTime: 500,
+	hideTime: 5000,
 }

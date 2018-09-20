@@ -11,6 +11,7 @@
     "@storybook/addon-info": "^3.4.11",
     "@storybook/addon-knobs": "^3.4.11",
     "@storybook/react": "^3.4.11",
+    "@storybook/storybook-deployer": "^2.3.0",
     "babel-core": "^6.26.3",
     "eslint": "^5.6.0",
     "eslint-plugin-react": "^7.11.1",
@@ -21,9 +22,12 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "start-storybook -p 6006 -c .storybook",
     "lint": "eslint ./ --cache --ignore-pattern .gitignore",
-    "build:demo": "build-storybook -c .storybook -o .out"
+    "build:demo": "build-storybook -c .storybook -o .out",
+    "deploy": "npm run build:demo && storybook-to-ghpages -- --existing-output-dir=.out"
   },
-  "pre-commit": [ "lint" ],
+  "pre-commit": [
+    "lint"
+  ],
   "repository": {
     "type": "git",
     "url": "git+https://github.com/ODudek/noti-react.git"
