@@ -1,4 +1,5 @@
-// import React from 'react';
+// eslint-disable-next-line no-unused-vars
+import React from 'react';
 // Import the storybook libraries
 import { storiesOf } from '@storybook/react';
 import { wInfo } from '../.storybook/utils';

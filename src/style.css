@@ -38,10 +38,6 @@
 	cursor: pointer;
 }
 
-.show {
-	animation: moveIn 0.5s;
-}
-
 @keyframes moveIn {
 	0% {
         transform: translateY(100px);

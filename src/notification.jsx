@@ -1,36 +1,39 @@
 import React, { Component } from 'react'
 import './style.css';
 import propTypes from 'prop-types';
-import { colors } from './consts';
+import { colors, showAnimation, hideAnimation } from './consts';
 import { Info, Done, Close } from './Icons';
 
 export class Notification extends Component {
 	state = {
 		color: colors[this.props.type] || "#72ACD6",
 		shouldClose: false,
+		startAnimation: false,
 	};
 
 	closeNotification = () => {
-		this.setState(() => ({ shouldClose: true }))
+		this.setState(() => ({ startAnimation: true }))
+		setTimeout(() => this.setState(() => ({ shouldClose: true })), 500)
 	}
 
 	getIcon = () => this.state.color === colors.success ? <Done /> : <Info />;
 
 	render() {
 		const { label } = this.props;
+		const { color, startAnimation } = this.state;
 		const icon = this.getIcon();
 		if (this.state.shouldClose) return null;
 
 		return (
-			<div className="notification show">
-				<div className="box flex-center" style={{ background: this.state.color }}>
+			<div className="notification" style={ startAnimation ? hideAnimation() : showAnimation()}>
+				<div className="box flex-center" style={{ background: color }}>
 					{icon}
 				</div>
 				<div className="message">
 					<p>{label}</p>
 				</div>
 				<div className="box flex-center">
-					<Close color={this.state.color} className="close" handleClose={this.closeNotification} />
+					<Close color={color} className="close" handleClose={this.closeNotification} />
 				</div>
 			</div>
 		)
