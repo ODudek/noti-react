@@ -23,3 +23,16 @@ yarn add noti-react
 |animationTime|number|-|500|Time of animation duration in miliseconds|
 |position|string ('top-left', 'top-right', 'bottom-left', 'bottom-right')|-|'bottom-right'| Position in which corner do you want to display notification|
 |hideTime|number|-|5000|After this time notification will close if `autoHide` props is `true`|
+
+## Example
+
+1. Import notification component
+```javascript
+import { Notification } from 'noti-react';
+```
+2. Use it in you component
+```javascript
+<Notification
+    label="Example of notification"
+/>
+```
