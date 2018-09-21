@@ -34,8 +34,9 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "start-storybook -p 6006 -c .storybook",
     "lint": "eslint ./ --cache --ignore-pattern .gitignore",
-    "deploy-storybook": "storybook-to-ghpages",
-    "deploy": "npm run deploy-storybook -- --existing-output-dir=.out",
+    "storybook:build": "build-storybook -c .storybook -o .out",
+    "storybook:deploy": "storybook-to-ghpages",
+    "deploy": "npm run storybook:build && npm run storybook:deploy -- --existing-output-dir=.out",
     "transpile": "babel src -d dist && node ./copyStyles.js",
     "prepublishOnly": "npm run lint && npm run transpile"
   },
