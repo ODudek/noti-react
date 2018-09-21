@@ -45,4 +45,41 @@ This is a button
 			label="Congratulations! You did it right."
 		/>
 	))
+).addWithJSX('Warn',
+	wInfo(`
+### Notes
+This is a button
+### Usage
+~~~js
+<Button
+	label={'Enroll'}
+	disabled={false}
+	onClick={() => alert('hello there')}
+/>
+~~~`)
+	(() => (
+		<Notification
+			type="warn"
+			label="I wouldn't do this if I were you..."
+			animationTime={1000}
+		/>
+	))
+).addWithJSX('Error',
+	wInfo(`
+### Notes
+This is a button
+### Usage
+~~~js
+<Button
+label={'Enroll'}
+disabled={false}
+onClick={() => alert('hello there')}
+/>
+~~~`)
+	(() => (
+		<Notification
+			type="error"
+			label="Oh, well. There's always next time."
+		/>
+	))
 );
