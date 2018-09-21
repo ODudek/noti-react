@@ -8,75 +8,75 @@ export class Notification extends PureComponent {
 	state = {
 		color: colors[this.props.type],
 		shouldClose: false,
-        startAnimation: false,
-        position: position.bottomRight,
+		startAnimation: false,
+		position: position.bottomRight,
 	};
 	autoHide = null;
-    animationTime = null;
-    
-    componentWillReceiveProps(nextProps) {
-        if (this.props !== nextProps) {
-            if (this.props.type !== nextProps.type) {
-                this.setState(() => ({ color: colors[nextProps.type] || colors.info }));
-            }
-            if (!nextProps.autoHide) {
-                this.setState(() => ({ shouldClose: false, startAnimation: false }));
-                this.clearTimeout();
-            }
-            if (this.props.position !== nextProps.position) {
-                this.setState(() => ({ position: nextProps.position }));
-            }
-        }
-    }
+	animationTime = null;
 
-    setPosition = () => {
-        switch(this.state.position) {
-            case position.topRight:
-                return {
-                    top: '0',
-                    right: '0',
-                };
-            case position.topLeft:
-                return {
-                    top: '0',
-                    left: '0',
-                };
-            case position.bottomRight:
-                return {
-                    bottom: '0',
-                    right: '0',
-                };
-            case position.bottomLeft:
-                return {
-                    bottom: '0',
-                    left: '0',
-                };
-            default:
-                return {
-                    bottom: '0',
-                    right: '0',
-                }
-        }
-    }
+	componentWillReceiveProps(nextProps) {
+		if (this.props !== nextProps) {
+			if (this.props.type !== nextProps.type) {
+				this.setState(() => ({ color: colors[nextProps.type] || colors.info }));
+			}
+			if (!nextProps.autoHide) {
+				this.setState(() => ({ shouldClose: false, startAnimation: false }));
+				this.clearTimeout();
+			}
+			if (this.props.position !== nextProps.position) {
+				this.setState(() => ({ position: nextProps.position }));
+			}
+		}
+	}
 
-    clearTimeout = () => {
-        clearTimeout(this.autoHide);
-        clearTimeout(this.animationTime);
-    }
+	setPosition = () => {
+		switch(this.state.position) {
+			case position.topRight:
+			return {
+				top: '0',
+				right: '0',
+			};
+			case position.topLeft:
+			return {
+				top: '0',
+				left: '0',
+			};
+			case position.bottomRight:
+			return {
+				bottom: '0',
+				right: '0',
+			};
+			case position.bottomLeft:
+			return {
+				bottom: '0',
+				left: '0',
+			};
+			default:
+			return {
+				bottom: '0',
+				right: '0',
+			}
+		}
+	}
+
+	clearTimeout = () => {
+		clearTimeout(this.autoHide);
+		clearTimeout(this.animationTime);
+	}
 
 	autoClose = () => {
-        const { hideTime, animationTime, autoHide } = this.props;
+		const { hideTime, animationTime, autoHide } = this.props;
 		const { startAnimation, shouldClose } = this.state;
-        if (autoHide) {
-            if (!shouldClose && !startAnimation) {
-                this.autoHide = setTimeout(() => {
-                    this.closeNotification();
-                }, hideTime - animationTime);
-            } else {
-                this.clearTimeout();
-            }
-        }
-    }
+		if (autoHide) {
+			if (!shouldClose && !startAnimation) {
+				this.autoHide = setTimeout(() => {
+					this.closeNotification();
+				}, hideTime - animationTime);
+			} else {
+				this.clearTimeout();
+			}
+		}
+	}
 
 	componentWillUnmount() {
 		this.clearTimeout();
@@ -93,9 +93,9 @@ export class Notification extends PureComponent {
 		const { label, animationTime } = this.props;
 		const { color, startAnimation, shouldClose } = this.state;
 		const icon = this.getIcon();
-        const getClass = startAnimation ? hideAnimation(animationTime) : showAnimation(animationTime);
-        const getPosition = this.setPosition();
-        const getStyle = { ...getClass, ...getPosition };
+		const getClass = startAnimation ? hideAnimation(animationTime) : showAnimation(animationTime);
+		const getPosition = this.setPosition();
+		const getStyle = { ...getClass, ...getPosition };
 		this.autoClose();
 		if (shouldClose) return null;
 
@@ -128,6 +128,6 @@ Notification.defaultProps = {
 	type: 'info',
 	autoHide: true,
 	animationTime: 500,
-    hideTime: 5000,
-    position: position.bottomRight,
+	hideTime: 5000,
+	position: position.bottomRight,
 }
