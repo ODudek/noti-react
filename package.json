@@ -30,6 +30,11 @@
     "pre-commit": "^1.2.2",
     "storybook-addon-jsx": "^5.4.0"
   },
+  "storybook-deployer": {
+    "gitUsername": "ODudek",
+    "gitEmail": "dudek.olek4@gmail.com",
+    "commitMessage": "Deploy Storybook"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "start-storybook -p 6006 -c .storybook",
