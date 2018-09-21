@@ -1,8 +1,8 @@
 {
   "name": "noti-react",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Simple notification component",
-  "main": "dist/index.js",
+  "main": "dist/Notification.js",
   "dependencies": {
     "react": "^16.5.2",
     "react-dom": "^16.5.2"
@@ -34,8 +34,8 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "start-storybook -p 6006 -c .storybook",
     "lint": "eslint ./ --cache --ignore-pattern .gitignore",
-    "build:demo": "build-storybook -c .storybook -o .out",
-    "deploy": "npm run build:demo && storybook-to-ghpages -- --existing-output-dir=.out",
+    "deploy-storybook": "storybook-to-ghpages",
+    "deploy": "npm run deploy-storybook -- --existing-output-dir=.out",
     "transpile": "babel src -d dist && node ./copyStyles.js",
     "prepublishOnly": "npm run lint && npm run transpile"
   },

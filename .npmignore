@@ -2,3 +2,4 @@ src/
 .storybook/
 copyStyles.js
 .babelrc
+node_modules/
