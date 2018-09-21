@@ -11,6 +11,7 @@ export class Notification extends PureComponent {
 		startAnimation: false,
 	};
 	autoHide = null;
+	animationTime = null;
 
 	autoClose = () => {
 		const { startAnimation, shouldClose } = this.state;
@@ -19,13 +20,19 @@ export class Notification extends PureComponent {
 				this.closeNotification();
 			}, this.props.hideTime - this.props.animationTime);
 		} else {
-			clearTimeout(this.autoHide);	
+			clearTimeout(this.autoHide);
+			clearTimeout(this.animationTime);	
 		}
+	}
+
+	componentWillUnmount() {
+		clearTimeout(this.autoHide);
+		clearTimeout(this.animationTime);
 	}
 
 	closeNotification = () => {
 		this.setState(() => ({ startAnimation: true }))
-		setTimeout(() => this.setState(() => ({ shouldClose: true })), this.props.animationTime)
+		this.animationTimeout = setTimeout(() => this.setState(() => ({ shouldClose: true })), this.props.animationTime)
 	}
 
 	getIcon = () => this.state.color === colors.success ? <Done /> : <Info />;
