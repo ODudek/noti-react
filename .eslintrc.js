@@ -17,6 +17,14 @@ module.exports = {
     "plugins": [
         "react"
     ],
+    "settings": {
+        "react": {
+          "pragma": "React",
+          "version": "16.5.2",
+          "flowVersion": "0.53"
+        },
+        "propWrapperFunctions": [ "forbidExtraProps" ]
+    },
     "rules": {
         "indent": [
             "error",

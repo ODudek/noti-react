@@ -6,10 +6,10 @@ export const colors = {
 };
 
 export const position = {
-    bottomRight: 'bottom-right',
-    bottomLeft: 'bottom-left',
-    topLeft: 'top-left',
-    topRight: 'top-right',
+	bottomRight: 'bottom-right',
+	bottomLeft: 'bottom-left',
+	topLeft: 'top-left',
+	topRight: 'top-right',
 };
 
 export const showAnimation = (time) => ({ animation: `moveIn ${time}ms` });
