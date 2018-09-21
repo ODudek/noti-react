@@ -4,8 +4,7 @@ import { storiesOf } from '@storybook/react';
 import { wInfo } from './utils';
 import { text, boolean } from '@storybook/addon-knobs/react';
 // eslint-disable-next-line no-unused-vars
-// import { Notification } from './Notification';
-import { Notification } from '../dist/Notification';
+import { Notification } from '../src/Notification';
 
 storiesOf('Components/Notification', module).addWithJSX('Default/Info',
 	wInfo(`
