@@ -2,9 +2,8 @@
 	width: 500px;
 	height: 60px;
 	box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.1), 0 2px 2px 0 rgba(0, 0, 0, 0.1);
-	position: fixed;
-	top: 0;
-	left: 0;
+    position: fixed;
+    margin: 15px;
 	display: flex;
 	align-items: center;
 }

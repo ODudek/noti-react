@@ -5,6 +5,13 @@ export const colors = {
 	warn: '#FCD63F',
 };
 
+export const position = {
+    bottomRight: 'bottom-right',
+    bottomLeft: 'bottom-left',
+    topLeft: 'top-left',
+    topRight: 'top-right',
+};
+
 export const showAnimation = (time) => ({ animation: `moveIn ${time}ms` });
 
 export const hideAnimation = (time) => ({ animation: `moveOut ${time}ms` });
