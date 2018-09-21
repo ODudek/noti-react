@@ -1,4 +1,6 @@
 # Noti-react
+[![npm version](https://badge.fury.io/js/noti-react.svg)](https://badge.fury.io/js/noti-react)
+[![dependencies](https://david-dm.org/odudek/noti-react.svg)](https://github.com/odudek/noti-react)
 
 Simple notification component for react
 
@@ -30,7 +32,7 @@ yarn add noti-react
 ```javascript
 import { Notification } from 'noti-react';
 ```
-2. Use it in you component
+2. Use it in your component
 ```javascript
 <Notification
     label="Example of notification"
