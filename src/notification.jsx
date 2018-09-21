@@ -1,10 +1,10 @@
-import React, { Component } from 'react'
+import React, { PureComponent } from 'react'
 import './style.css';
 import propTypes from 'prop-types';
 import { colors, showAnimation, hideAnimation } from './consts';
 import { Info, Done, Close } from './Icons';
 
-export class Notification extends Component {
+export class Notification extends PureComponent {
 	state = {
 		color: colors[this.props.type] || "#72ACD6",
 		shouldClose: false,
@@ -12,16 +12,14 @@ export class Notification extends Component {
 	};
 	autoHide = null;
 
-	getTimeout = () => this.props.hideTime - this.props.animationTime;
-
 	autoClose = () => {
 		const { startAnimation, shouldClose } = this.state;
 		if (!shouldClose && !startAnimation) {
 			this.autoHide = setTimeout(() => {
 				this.closeNotification();
-			}, this.getTimeout());
+			}, this.props.hideTime - this.props.animationTime);
 		} else {
-			clearTimeout(this.autoHide);
+			clearTimeout(this.autoHide);	
 		}
 	}
 

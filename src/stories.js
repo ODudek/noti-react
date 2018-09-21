@@ -41,6 +41,7 @@ This is a button
 ~~~`)
 	(() => (
 		<Notification
+			type="success"
 			label="Congratulations! You did it right."
 		/>
 	))
