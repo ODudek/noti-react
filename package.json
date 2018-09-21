@@ -2,8 +2,12 @@
   "name": "noti-react",
   "version": "0.0.1",
   "description": "Simple notification component",
-  "main": "index.js",
+  "main": "dist/index.js",
   "dependencies": {
+    "react": "^16.5.2",
+    "react-dom": "^16.5.2"
+  },
+  "peerDependencies": {
     "react": "^16.5.2",
     "react-dom": "^16.5.2"
   },
@@ -12,7 +16,15 @@
     "@storybook/addon-knobs": "^3.4.11",
     "@storybook/react": "^3.4.11",
     "@storybook/storybook-deployer": "^2.3.0",
+    "babel-cli": "^6.26.0",
     "babel-core": "^6.26.3",
+    "babel-plugin-react-css-modules": "^3.4.2",
+    "babel-plugin-react-transform": "^3.0.0",
+    "babel-plugin-transform-class-properties": "^6.24.1",
+    "babel-preset-env": "^1.7.0",
+    "babel-preset-react": "^6.24.1",
+    "babel-preset-stage-3": "^6.24.1",
+    "css-loader": "^1.0.0",
     "eslint": "^5.6.0",
     "eslint-plugin-react": "^7.11.1",
     "pre-commit": "^1.2.2",
@@ -23,7 +35,9 @@
     "dev": "start-storybook -p 6006 -c .storybook",
     "lint": "eslint ./ --cache --ignore-pattern .gitignore",
     "build:demo": "build-storybook -c .storybook -o .out",
-    "deploy": "npm run build:demo && storybook-to-ghpages -- --existing-output-dir=.out"
+    "deploy": "npm run build:demo && storybook-to-ghpages -- --existing-output-dir=.out",
+    "transpile": "babel src -d dist && node ./copyStyles.js",
+    "prepublishOnly": "npm run lint && npm run transpile"
   },
   "pre-commit": [
     "lint"
