@@ -131,6 +131,7 @@ Notification.propTypes = {
 	position: propTypes.string,
 	hideTime: propTypes.number,
 	customColor: propTypes.string,
+	className: propTypes.string,
 };
 
 Notification.defaultProps = {
