@@ -12,6 +12,7 @@ storiesOf('Components/Notification', module).addWithJSX('Default/Info',
 			type={text('type', 'info')}
 			autoHide={boolean('autoHide', true)}
 			position={text('position', 'bottom-right')}
+			customColor={text('customColor', '')}
 		/>
 	))
 ).addWithJSX('Success',
@@ -21,6 +22,7 @@ storiesOf('Components/Notification', module).addWithJSX('Default/Info',
 			type={text('type', 'success')}
 			autoHide={boolean('autoHide', true)}
 			position={text('position', 'bottom-right')}
+			customColor={text('customColor', '')}
 		/>
 	))
 ).addWithJSX('Warn',
@@ -30,6 +32,7 @@ storiesOf('Components/Notification', module).addWithJSX('Default/Info',
 			type={text('type', 'warn')}
 			autoHide={boolean('autoHide', true)}
 			position={text('position', 'bottom-right')}
+			customColor={text('customColor', '')}
 		/>
 	))
 ).addWithJSX('Error',
@@ -39,6 +42,7 @@ storiesOf('Components/Notification', module).addWithJSX('Default/Info',
 			type={text('type', 'error')}
 			autoHide={boolean('autoHide', true)}
 			position={text('position', 'bottom-right')}
+			customColor={text('customColor', '')}
 		/>
 	))
 );

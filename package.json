@@ -1,6 +1,6 @@
 {
   "name": "noti-react",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Simple notification component",
   "main": "dist/Notification.js",
   "dependencies": {

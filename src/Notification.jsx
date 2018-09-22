@@ -6,7 +6,7 @@ import { Info, Done, Close } from './Icons';
 
 export class Notification extends PureComponent {
 	state = {
-		color: colors[this.props.type],
+		color: this.props.customColor || colors[this.props.type],
 		shouldClose: false,
 		startAnimation: false,
 		position: position.bottomRight,
@@ -23,11 +23,18 @@ export class Notification extends PureComponent {
 				this.setState(() => ({ shouldClose: false, startAnimation: false }));
 				this.clearTimeout();
 			}
-			if (this.props.position !== nextProps.position) {
+			if (this.isPosition(nextProps.position)) {
 				this.setState(() => ({ position: nextProps.position }));
+			}
+			if (this.isRgb(nextProps.customColor)) {
+				this.setState(() => ({ color: nextProps.customColor }));
 			}
 		}
 	}
+
+	isRgb = (color) => /^#[0-9A-F]{6}$/i.test(color)
+
+	isPosition = (propPosition) => Object.values(position).includes(propPosition);
 
 	setPosition = () => {
 		switch(this.state.position) {
@@ -90,17 +97,18 @@ export class Notification extends PureComponent {
 	getIcon = () => this.state.color === colors.success ? <Done /> : <Info />;
 
 	render() {
-		const { label, animationTime } = this.props;
+		const { label, animationTime, className } = this.props;
 		const { color, startAnimation, shouldClose } = this.state;
 		const icon = this.getIcon();
 		const getClass = startAnimation ? hideAnimation(animationTime) : showAnimation(animationTime);
 		const getPosition = this.setPosition();
 		const getStyle = { ...getClass, ...getPosition };
 		this.autoClose();
+		const classes = className ? `notification ${className}` : 'notification';
 		if (shouldClose) return null;
 
 		return (
-			<div className="notification" style={getStyle}>
+			<div className={classes} style={getStyle}>
 				<div className="box flex-center" style={{ background: color }}>
 					{icon}
 				</div>
@@ -122,6 +130,7 @@ Notification.propTypes = {
 	animationTime: propTypes.number,
 	position: propTypes.string,
 	hideTime: propTypes.number,
+	customColor: propTypes.string,
 };
 
 Notification.defaultProps = {
