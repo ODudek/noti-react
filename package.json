@@ -1,17 +1,11 @@
 {
   "name": "noti-react",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "Simple notification component",
   "main": "dist/Notification.js",
-  "dependencies": {
-    "react": "^16.5.2",
-    "react-dom": "^16.5.2"
-  },
-  "peerDependencies": {
-    "react": "^16.5.2",
-    "react-dom": "^16.5.2"
-  },
   "devDependencies": {
+    "react": "^16.5.2",
+    "react-dom": "^16.5.2",
     "@storybook/addon-info": "^3.4.11",
     "@storybook/addon-knobs": "^3.4.11",
     "@storybook/react": "^3.4.11",
