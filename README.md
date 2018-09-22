@@ -29,7 +29,7 @@ yarn add noti-react
 |animationTime|number|-|500|Time of animation duration in miliseconds|
 |position|string ('top-left', 'top-right', 'bottom-left', 'bottom-right')|-|'bottom-right'| Position in which corner do you want to display notification|
 |hideTime|number|-|5000|After this time notification will close if `autoHide` props is `true`|
-|customColor|string (rgb string like '#000000') |-|-|Customize color of icon|
+|customColor|string (rgb string like '#000000') |-|-|Add your custom color|
 
 ## Example
 
