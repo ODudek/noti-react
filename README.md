@@ -6,6 +6,8 @@
 
 Simple notification component for react
 
+![demo](./demo.jpg)
+
 ## Install
 
 1. Use npm 
