@@ -8,7 +8,6 @@ setAddon(JSXAddon);
 // automatically import all files ending in stories.js
 const req = require.context("./", true, /stories.js$/);
 function loadStories() {
-    require("./welcomeStory");
     req.keys().forEach(filename => req(filename));
 }
 
