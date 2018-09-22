@@ -1,6 +1,8 @@
 # Noti-react
 [![npm version](https://badge.fury.io/js/noti-react.svg)](https://badge.fury.io/js/noti-react)
 [![dependencies](https://david-dm.org/odudek/noti-react.svg)](https://github.com/odudek/noti-react)
+[![npm](https://img.shields.io/npm/dt/noti-react.svg)](https://www.npmjs.com/package/noti-react)
+[![npm bundle size (minified)](https://img.shields.io/bundlephobia/min/react.svg)](https://github.com/ODudek/noti-react)
 
 Simple notification component for react
 
