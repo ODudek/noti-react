@@ -1,4 +1,10 @@
 {
     "presets": ["env", "react", "stage-3"],
-    "plugins": ["transform-class-properties", "react-css-modules"]
+	"plugins": ["transform-class-properties", "react-css-modules"],
+	"env": {
+		"test": {
+			"presets": ["env", "react", "stage-3"],
+			"plugins": ["transform-class-properties", "react-css-modules"]
+		}
+	}
 }

@@ -4,8 +4,6 @@
   "description": "Simple notification component",
   "main": "dist/Notification.js",
   "devDependencies": {
-    "react": "^16.5.2",
-    "react-dom": "^16.5.2",
     "@storybook/addon-info": "^3.4.11",
     "@storybook/addon-knobs": "^3.4.11",
     "@storybook/react": "^3.4.11",
@@ -19,9 +17,17 @@
     "babel-preset-react": "^6.24.1",
     "babel-preset-stage-3": "^6.24.1",
     "css-loader": "^1.0.0",
+    "enzyme": "^3.6.0",
+    "enzyme-adapter-react-16": "^1.5.0",
     "eslint": "^5.6.0",
     "eslint-plugin-react": "^7.11.1",
+    "ignore-styles": "^5.0.1",
+    "jest": "^23.6.0",
+    "jest-css-modules": "^1.1.0",
     "pre-commit": "^1.2.2",
+    "react": "^16.5.2",
+    "react-dom": "^16.5.2",
+    "react-test-renderer": "^16.5.2",
     "storybook-addon-jsx": "^5.4.0"
   },
   "storybook-deployer": {
@@ -30,7 +36,7 @@
     "commitMessage": "Deploy Storybook"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "jest",
     "dev": "start-storybook -p 6006 -c .storybook",
     "lint": "eslint ./ --cache --ignore-pattern .gitignore",
     "storybook:build": "build-storybook -c .storybook -o .out",
@@ -58,8 +64,8 @@
     "LICENSE",
     "README.md",
     "dist/",
-	"package.json",
-	"index.d.ts"
+    "package.json",
+    "index.d.ts"
   ],
   "author": "ODudek dudek.olek4@gmail.com",
   "license": "MIT",
