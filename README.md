@@ -4,7 +4,7 @@
 [![npm](https://img.shields.io/npm/dt/noti-react.svg)](https://www.npmjs.com/package/noti-react)
 [![npm bundle size (minified)](https://img.shields.io/bundlephobia/min/react.svg)](https://github.com/ODudek/noti-react)
 
-Simple notification component for react
+Simple notification component for React with support for Typescript!
 
 ![demo](./demo.jpg)
 
