@@ -44,3 +44,10 @@ import { Notification } from 'noti-react';
     label="Example of notification"
 />
 ```
+
+## Tests
+
+Run tests
+```bash
+npm test
+```

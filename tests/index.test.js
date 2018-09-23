@@ -5,13 +5,6 @@ import Adapter from 'enzyme-adapter-react-16';
 import { mount } from 'enzyme';
 
 enzyme.configure({ adapter: new Adapter() });
-function wait(ms) {
-	var start = new Date().getTime();
-	var end = start;
-	while(end < start + ms) {
-		end = new Date().getTime();
-   }
-}
 
 describe('Notification', () => {
 	let props;
