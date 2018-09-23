@@ -15,7 +15,6 @@ function findAndCopyFile (path, fileName) {
 
 function setup() {
 	findAndCopyFile('./src', '.css');
-	findAndCopyFile('.', '.d.ts');
 }
 
 setup();

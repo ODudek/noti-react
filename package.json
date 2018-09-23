@@ -1,6 +1,6 @@
 {
   "name": "noti-react",
-  "version": "0.0.7",
+  "version": "0.0.9",
   "description": "Simple notification component",
   "main": "dist/Notification.js",
   "devDependencies": {
@@ -58,7 +58,8 @@
     "LICENSE",
     "README.md",
     "dist/",
-    "package.json"
+	"package.json",
+	"index.d.ts"
   ],
   "author": "ODudek dudek.olek4@gmail.com",
   "license": "MIT",
