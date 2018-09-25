@@ -4,6 +4,7 @@
 [![dependencies](https://david-dm.org/odudek/noti-react.svg)](https://github.com/odudek/noti-react)
 [![npm](https://img.shields.io/npm/dt/noti-react.svg)](https://www.npmjs.com/package/noti-react)
 [![npm bundle size (minified)](https://img.shields.io/bundlephobia/min/react.svg)](https://github.com/ODudek/noti-react)
+[![HitCount](http://hits.dwyl.io/odudek/noti-react.svg)](http://hits.dwyl.io/odudek/noti-react)
 
 Simple notification component for React with support for Typescript!
 
