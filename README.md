@@ -1,5 +1,5 @@
 # Noti-react
-[![npm version](https://badge.fury.io/js/noti-react.svg)](https://badge.fury.io/js/noti-react)
+[![npm version](https://img.shields.io/npm/v/noti-react.svg?style=flat-square)](https://www.npmjs.com/package/noti-react)
 [![Build Status](https://img.shields.io/travis/ODudek/noti-react/master.svg?style=flat-square)](https://travis-ci.org/ODudek/noti-react)
 [![dependencies](https://david-dm.org/odudek/noti-react.svg?style=flat-square)](https://github.com/odudek/noti-react)
 [![npm](https://img.shields.io/npm/dt/noti-react.svg?style=flat-square)](https://www.npmjs.com/package/noti-react)
