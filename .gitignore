@@ -3,3 +3,4 @@ node_modules/
 .out/
 dist/
 tests/__snapshots__/
+.idea/

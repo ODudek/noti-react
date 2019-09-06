@@ -32,7 +32,7 @@ export class Notification extends PureComponent {
 		}
 	}
 
-	isRgb = (color) => /^#[0-9A-F]{6}$/i.test(color)
+	isRgb = (color) => /^#[0-9A-F]{6}$/i.test(color);
 
 	isPosition = (propPosition) => Object.values(position).includes(propPosition);
 
@@ -64,12 +64,12 @@ export class Notification extends PureComponent {
 				right: '0',
 			}
 		}
-	}
+	};
 
 	clearTimeout = () => {
 		clearTimeout(this.autoHide);
 		clearTimeout(this.animationTime);
-	}
+	};
 
 	autoClose = () => {
 		const { hideTime, animationTime, autoHide } = this.props;
@@ -83,16 +83,18 @@ export class Notification extends PureComponent {
 				this.clearTimeout();
 			}
 		}
-	}
+	};
 
 	componentWillUnmount() {
 		this.clearTimeout();
 	}
 
 	closeNotification = () => {
-		this.setState(() => ({ startAnimation: true }))
-		this.animationTimeout = setTimeout(() => this.setState(() => ({ shouldClose: true })), this.props.animationTime)
-	}
+		this.setState(() => ({ startAnimation: true }));
+		setTimeout(() => {
+			this.setState(() => ({ shouldClose: true }))
+		}, this.props.animationTime);
+	};
 
 	getIcon = () => this.state.color === colors.success ? <Done /> : <Info />;
 
@@ -140,4 +142,4 @@ Notification.defaultProps = {
 	animationTime: 500,
 	hideTime: 5000,
 	position: position.bottomRight,
-}
+};
