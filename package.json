@@ -6,11 +6,11 @@
   "devDependencies": {
     "@storybook/addon-info": "^3.4.11",
     "@storybook/addon-knobs": "^3.4.11",
-    "@storybook/react": "^3.4.11",
+    "@storybook/react": "^6.5.13",
     "@storybook/storybook-deployer": "^2.3.0",
     "babel-cli": "^6.26.0",
     "babel-core": "^6.26.3",
-    "babel-plugin-react-css-modules": "^3.4.2",
+    "babel-plugin-react-css-modules": "^5.2.6",
     "babel-plugin-react-transform": "^3.0.0",
     "babel-plugin-transform-class-properties": "^6.24.1",
     "babel-preset-env": "^1.7.0",
