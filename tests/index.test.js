@@ -1,7 +1,7 @@
 import React from 'react';
 import { Notification } from '../src/Notification';
 import enzyme from 'enzyme';
-import Adapter from 'enzyme-adapter-react-16';
+import Adapter from '@cfaester/enzyme-adapter-react-18';
 import { mount } from 'enzyme';
 
 enzyme.configure({ adapter: new Adapter() });
