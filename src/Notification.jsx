@@ -15,20 +15,21 @@ export class Notification extends PureComponent {
 	animationTime = null;
 
 	componentWillReceiveProps(nextProps) {
-		if (this.props !== nextProps) {
-			if (this.props.type !== nextProps.type) {
-				this.setState(() => ({ color: colors[nextProps.type] || colors.info }));
-			}
-			if (!nextProps.autoHide) {
-				this.setState(() => ({ shouldClose: false, startAnimation: false }));
-				this.clearTimeout();
-			}
-			if (this.isPosition(nextProps.position)) {
-				this.setState(() => ({ position: nextProps.position }));
-			}
-			if (this.isRgb(nextProps.customColor)) {
-				this.setState(() => ({ color: nextProps.customColor }));
-			}
+		if (this.props === nextProps) {
+			return;
+		}
+		if (this.props.type !== nextProps.type) {
+			this.setState(() => ({ color: colors[nextProps.type] || colors.info }));
+		}
+		if (!nextProps.autoHide) {
+			this.setState(() => ({ shouldClose: false, startAnimation: false }));
+			this.clearTimeout();
+		}
+		if (this.isPosition(nextProps.position)) {
+			this.setState(() => ({ position: nextProps.position }));
+		}
+		if (this.isRgb(nextProps.customColor)) {
+			this.setState(() => ({ color: nextProps.customColor }));
 		}
 	}
 
