@@ -10,7 +10,7 @@
     "@storybook/storybook-deployer": "^2.3.0",
     "babel-cli": "^6.26.0",
     "babel-core": "^6.26.3",
-    "babel-plugin-react-css-modules": "^0.0.0",
+    "babel-plugin-react-css-modules": "^5.2.6",
     "babel-plugin-react-transform": "^3.0.0",
     "babel-plugin-transform-class-properties": "^6.24.1",
     "babel-preset-env": "^1.7.0",
