@@ -1,130 +1,118 @@
-import React, { PureComponent } from 'react'
+import React, { useState, useEffect, useRef, useCallback } from 'react';
 import './style.css';
 import propTypes from 'prop-types';
 import { colors, showAnimation, hideAnimation, position } from './consts';
 import { Info, Done, Close } from './Icons';
 
-export class Notification extends PureComponent {
-	state = {
-		color: this.props.customColor || colors[this.props.type],
-		shouldClose: false,
-		startAnimation: false,
-		position: position.bottomRight,
-	};
-	autoHide = null;
-	animationTime = null;
+export const Notification = ({
+	type = 'info',
+	label,
+	autoHide = true,
+	animationTime = 500,
+	hideTime = 5000,
+	position: notificationPosition = position.bottomRight,
+	customColor,
+	className,
+}) => {
+	const [color, setColor] = useState(customColor || colors[type]);
+	const [shouldClose, setShouldClose] = useState(false);
+	const [startAnimation, setStartAnimation] = useState(false);
 
-	componentWillReceiveProps(nextProps) {
-		if (this.props === nextProps) {
-			return;
+	const autoHideRef = useRef(null);
+	const animationTimeRef = useRef(null);
+
+	const isRgb = (color) => /^#[0-9A-F]{6}$/i.test(color);
+
+	const clearTimeouts = useCallback(() => {
+		clearTimeout(autoHideRef.current);
+		clearTimeout(animationTimeRef.current);
+	}, []);
+
+	const closeNotification = useCallback(() => {
+		setStartAnimation(true);
+		animationTimeRef.current = setTimeout(() => {
+			setShouldClose(true);
+		}, animationTime);
+	}, [animationTime]);
+
+	const autoClose = useCallback(() => {
+		if (autoHide && !shouldClose && !startAnimation) {
+			autoHideRef.current = setTimeout(() => {
+				closeNotification();
+			}, hideTime - animationTime);
+		} else if (!autoHide) {
+			clearTimeouts();
 		}
-		if (this.props.type !== nextProps.type) {
-			this.setState(() => ({ color: colors[nextProps.type] || colors.info }));
+	}, [
+		autoHide,
+		shouldClose,
+		startAnimation,
+		closeNotification,
+		hideTime,
+		animationTime,
+		clearTimeouts,
+	]);
+
+	// Handle prop changes
+	useEffect(() => {
+		if (type) {
+			setColor(customColor || colors[type] || colors.info);
 		}
-		if (!nextProps.autoHide) {
-			this.setState(() => ({ shouldClose: false, startAnimation: false }));
-			this.clearTimeout();
+	}, [type, customColor]);
+
+	useEffect(() => {
+		if (!autoHide) {
+			setShouldClose(false);
+			setStartAnimation(false);
+			clearTimeouts();
 		}
-		if (this.isPosition(nextProps.position)) {
-			this.setState(() => ({ position: nextProps.position }));
+	}, [autoHide, clearTimeouts]);
+
+	useEffect(() => {
+		if (customColor && isRgb(customColor)) {
+			setColor(customColor);
 		}
-		if (this.isRgb(nextProps.customColor)) {
-			this.setState(() => ({ color: nextProps.customColor }));
-		}
-	}
+	}, [customColor]);
 
-	isRgb = (color) => /^#[0-9A-F]{6}$/i.test(color);
+	// Auto close effect
+	useEffect(() => {
+		autoClose();
+		return clearTimeouts;
+	}, [autoClose, clearTimeouts]);
 
-	isPosition = (propPosition) => Object.values(position).includes(propPosition);
+	// Cleanup on unmount
+	useEffect(() => {
+		return clearTimeouts;
+	}, [clearTimeouts]);
 
-	setPosition = () => {
-		switch(this.state.position) {
-			case position.topRight:
-			return {
-				top: '0',
-				right: '0',
-			};
-			case position.topLeft:
-			return {
-				top: '0',
-				left: '0',
-			};
-			case position.bottomRight:
-			return {
-				bottom: '0',
-				right: '0',
-			};
-			case position.bottomLeft:
-			return {
-				bottom: '0',
-				left: '0',
-			};
-			default:
-			return {
-				bottom: '0',
-				right: '0',
-			}
-		}
-	};
+	const getIcon = () => (color === colors.success ? <Done /> : <Info />);
 
-	clearTimeout = () => {
-		clearTimeout(this.autoHide);
-		clearTimeout(this.animationTime);
-	};
+	if (shouldClose) return null;
 
-	autoClose = () => {
-		const { hideTime, animationTime, autoHide } = this.props;
-		const { startAnimation, shouldClose } = this.state;
-		if (autoHide) {
-			if (!shouldClose && !startAnimation) {
-				this.autoHide = setTimeout(() => {
-					this.closeNotification();
-				}, hideTime - animationTime);
-			} else {
-				this.clearTimeout();
-			}
-		}
-	};
+	const icon = getIcon();
+	const animationStyle = startAnimation
+		? hideAnimation(animationTime, notificationPosition)
+		: showAnimation(animationTime, notificationPosition);
+	const classes = className ? `notification ${className}` : 'notification';
 
-	componentWillUnmount() {
-		this.clearTimeout();
-	}
-
-	closeNotification = () => {
-		this.setState(() => ({ startAnimation: true }));
-		setTimeout(() => {
-			this.setState(() => ({ shouldClose: true }))
-		}, this.props.animationTime);
-	};
-
-	getIcon = () => this.state.color === colors.success ? <Done /> : <Info />;
-
-	render() {
-		const { label, animationTime, className } = this.props;
-		const { color, startAnimation, shouldClose } = this.state;
-		const icon = this.getIcon();
-		const getClass = startAnimation ? hideAnimation(animationTime) : showAnimation(animationTime);
-		const getPosition = this.setPosition();
-		const getStyle = { ...getClass, ...getPosition };
-		this.autoClose();
-		const classes = className ? `notification ${className}` : 'notification';
-		if (shouldClose) return null;
-
-		return (
-			<div className={classes} style={getStyle}>
-				<div className="box flex-center" style={{ background: color }}>
-					{icon}
-				</div>
-				<div className="message">
-					<p>{label}</p>
-				</div>
-				<div className="box flex-center">
-					<Close color={color} className="close" handleClose={this.closeNotification} />
-				</div>
+	return (
+		<div className={classes} style={animationStyle}>
+			<div className="box flex-center" style={{ background: color }}>
+				{icon}
 			</div>
-		)
-	}
-}
+			<div className="message">
+				<p>{label}</p>
+			</div>
+			<div className="box flex-center">
+				<Close
+					color={color}
+					className="close"
+					handleClose={closeNotification}
+				/>
+			</div>
+		</div>
+	);
+};
 
 Notification.propTypes = {
 	type: propTypes.string,
@@ -135,12 +123,4 @@ Notification.propTypes = {
 	hideTime: propTypes.number,
 	customColor: propTypes.string,
 	className: propTypes.string,
-};
-
-Notification.defaultProps = {
-	type: 'info',
-	autoHide: true,
-	animationTime: 500,
-	hideTime: 5000,
-	position: position.bottomRight,
 };

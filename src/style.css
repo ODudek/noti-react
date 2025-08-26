@@ -1,11 +1,14 @@
 .notification {
 	width: 500px;
-	height: 60px;
-	box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.1), 0 2px 2px 0 rgba(0, 0, 0, 0.1);
-    position: fixed;
-    margin: 15px;
+	min-height: 60px;
+	box-shadow:
+		0 2px 2px 0 rgba(0, 0, 0, 0.1),
+		0 2px 2px 0 rgba(0, 0, 0, 0.1);
+	position: relative;
 	display: flex;
 	align-items: center;
+	background: white;
+	border-radius: 4px;
 }
 
 .box {
@@ -19,12 +22,11 @@
 
 .message > p {
 	margin: 0;
-	overflow: hidden;
-	white-space: nowrap;
-	text-overflow: ellipsis;
 	width: 350px;
 	color: #585959;
 	font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+	word-wrap: break-word;
+	line-height: 1.4;
 }
 
 .flex-center {
@@ -39,24 +41,45 @@
 
 @keyframes moveIn {
 	0% {
-        transform: translateY(100px);
-        visibility: hidden;        
+		transform: translateX(100%);
+		opacity: 0;
 	}
 	100% {
-        transform: translateY(0);
-        visibility: visible;        
+		transform: translateX(0);
+		opacity: 1;
 	}
 }
 
 @keyframes moveOut {
 	0% {
-        transform: translateY(0);
-        opacity: 1;
-        visibility: visible;
+		transform: translateX(0);
+		opacity: 1;
 	}
 	100% {
-	    transform: translateY(-100px);
-        opacity: 0;
-        visibility: hidden;
+		transform: translateX(100%);
+		opacity: 0;
+	}
+}
+
+/* Animacje dla pozycji po lewej stronie */
+@keyframes moveInLeft {
+	0% {
+		transform: translateX(-100%);
+		opacity: 0;
+	}
+	100% {
+		transform: translateX(0);
+		opacity: 1;
+	}
+}
+
+@keyframes moveOutLeft {
+	0% {
+		transform: translateX(0);
+		opacity: 1;
+	}
+	100% {
+		transform: translateX(-100%);
+		opacity: 0;
 	}
 }
