@@ -13,13 +13,17 @@ export const position = {
 };
 
 export const showAnimation = (time, notificationPosition) => {
-	const isLeft = notificationPosition === position.topLeft || notificationPosition === position.bottomLeft;
+	const isLeft =
+		notificationPosition === position.topLeft ||
+		notificationPosition === position.bottomLeft;
 	const animationName = isLeft ? 'moveInLeft' : 'moveIn';
 	return { animation: `${animationName} ${time}ms ease-out` };
 };
 
 export const hideAnimation = (time, notificationPosition) => {
-	const isLeft = notificationPosition === position.topLeft || notificationPosition === position.bottomLeft;
+	const isLeft =
+		notificationPosition === position.topLeft ||
+		notificationPosition === position.bottomLeft;
 	const animationName = isLeft ? 'moveOutLeft' : 'moveOut';
 	return { animation: `${animationName} ${time}ms ease-in` };
 };

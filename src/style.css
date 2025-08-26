@@ -1,85 +1,85 @@
 .notification {
-  width: 500px;
-  min-height: 60px;
-  box-shadow:
-    0 2px 2px 0 rgba(0, 0, 0, 0.1),
-    0 2px 2px 0 rgba(0, 0, 0, 0.1);
-  position: relative;
-  display: flex;
-  align-items: center;
-  background: white;
-  border-radius: 4px;
+	width: 500px;
+	min-height: 60px;
+	box-shadow:
+		0 2px 2px 0 rgba(0, 0, 0, 0.1),
+		0 2px 2px 0 rgba(0, 0, 0, 0.1);
+	position: relative;
+	display: flex;
+	align-items: center;
+	background: white;
+	border-radius: 4px;
 }
 
 .box {
-  height: 60px;
-  width: 60px;
+	height: 60px;
+	width: 60px;
 }
 
 .message {
-  margin-left: 30px;
+	margin-left: 30px;
 }
 
 .message > p {
-  margin: 0;
-  width: 350px;
-  color: #585959;
-  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-  word-wrap: break-word;
-  line-height: 1.4;
+	margin: 0;
+	width: 350px;
+	color: #585959;
+	font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+	word-wrap: break-word;
+	line-height: 1.4;
 }
 
 .flex-center {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+	display: flex;
+	justify-content: center;
+	align-items: center;
 }
 
 .close {
-  cursor: pointer;
+	cursor: pointer;
 }
 
 @keyframes moveIn {
-  0% {
-    transform: translateX(100%);
-    opacity: 0;
-  }
-  100% {
-    transform: translateX(0);
-    opacity: 1;
-  }
+	0% {
+		transform: translateX(100%);
+		opacity: 0;
+	}
+	100% {
+		transform: translateX(0);
+		opacity: 1;
+	}
 }
 
 @keyframes moveOut {
-  0% {
-    transform: translateX(0);
-    opacity: 1;
-  }
-  100% {
-    transform: translateX(100%);
-    opacity: 0;
-  }
+	0% {
+		transform: translateX(0);
+		opacity: 1;
+	}
+	100% {
+		transform: translateX(100%);
+		opacity: 0;
+	}
 }
 
 /* Animacje dla pozycji po lewej stronie */
 @keyframes moveInLeft {
-  0% {
-    transform: translateX(-100%);
-    opacity: 0;
-  }
-  100% {
-    transform: translateX(0);
-    opacity: 1;
-  }
+	0% {
+		transform: translateX(-100%);
+		opacity: 0;
+	}
+	100% {
+		transform: translateX(0);
+		opacity: 1;
+	}
 }
 
 @keyframes moveOutLeft {
-  0% {
-    transform: translateX(0);
-    opacity: 1;
-  }
-  100% {
-    transform: translateX(-100%);
-    opacity: 0;
-  }
+	0% {
+		transform: translateX(0);
+		opacity: 1;
+	}
+	100% {
+		transform: translateX(-100%);
+		opacity: 0;
+	}
 }

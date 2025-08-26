@@ -133,12 +133,12 @@ import { Notification } from 'noti-react';
 
 ```javascript
 <Notification
-  type="info"
-  label="Custom notification with longer text and styling"
-  customColor="#2196F3"
-  className="custom-info-notification"
-  animationTime={600}
-  hideTime={7000}
+	type="info"
+	label="Custom notification with longer text and styling"
+	customColor="#2196F3"
+	className="custom-info-notification"
+	animationTime={600}
+	hideTime={7000}
 />
 ```
 
@@ -146,10 +146,10 @@ import { Notification } from 'noti-react';
 
 ```javascript
 <Notification
-  type="error"
-  label="Something went wrong! Please try again."
-  position="top-left"
-  autoHide={false}
+	type="error"
+	label="Something went wrong! Please try again."
+	position="top-left"
+	autoHide={false}
 />
 ```
 
@@ -157,10 +157,10 @@ import { Notification } from 'noti-react';
 
 ```javascript
 <Notification
-  type="warn"
-  label="This action cannot be undone"
-  position="bottom-left"
-  hideTime={10000}
+	type="warn"
+	label="This action cannot be undone"
+	position="bottom-left"
+	hideTime={10000}
 />
 ```
 

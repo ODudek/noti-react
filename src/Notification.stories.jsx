@@ -51,7 +51,7 @@ Success.args = {
 
 export const Warning = Template.bind({});
 Warning.args = {
-	label: 'I wouldn\'t do this if I were you...',
+	label: "I wouldn't do this if I were you...",
 	type: 'warn',
 	autoHide: true,
 	position: 'bottom-right',
@@ -59,7 +59,7 @@ Warning.args = {
 
 export const Error = Template.bind({});
 Error.args = {
-	label: 'Oh, well. There\'s always next time.',
+	label: "Oh, well. There's always next time.",
 	type: 'error',
 	autoHide: true,
 	position: 'bottom-right',
@@ -124,7 +124,8 @@ export const MultipleNotifications = MultipleTemplate.bind({});
 MultipleNotifications.parameters = {
 	docs: {
 		description: {
-			story: 'Showcase of multiple notifications in different positions simultaneously.',
+			story:
+				'Showcase of multiple notifications in different positions simultaneously.',
 		},
 	},
 };
@@ -211,7 +212,8 @@ export const MixedNotifications = MixedTemplate.bind({});
 MixedNotifications.parameters = {
 	docs: {
 		description: {
-			story: 'Real-world example with different notification types, positions, and one custom colored notification.',
+			story:
+				'Real-world example with different notification types, positions, and one custom colored notification.',
 		},
 	},
 };
@@ -266,7 +268,8 @@ export const AnimationShowcase = AnimationTemplate.bind({});
 AnimationShowcase.parameters = {
 	docs: {
 		description: {
-			story: 'Demonstrates different animation speeds and auto-hide timings. Notifications will auto-hide after different intervals.',
+			story:
+				'Demonstrates different animation speeds and auto-hide timings. Notifications will auto-hide after different intervals.',
 		},
 	},
 };
@@ -313,7 +316,8 @@ export const LongTextNotifications = LongTextTemplate.bind({});
 LongTextNotifications.parameters = {
 	docs: {
 		description: {
-			story: 'Shows how notifications handle different text lengths and content wrapping.',
+			story:
+				'Shows how notifications handle different text lengths and content wrapping.',
 		},
 	},
 };
