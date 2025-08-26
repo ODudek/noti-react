@@ -51,7 +51,7 @@ Success.args = {
 
 export const Warning = Template.bind({});
 Warning.args = {
-	label: "I wouldn't do this if I were you...",
+	label: 'I wouldn\'t do this if I were you...',
 	type: 'warn',
 	autoHide: true,
 	position: 'bottom-right',
@@ -59,7 +59,7 @@ Warning.args = {
 
 export const Error = Template.bind({});
 Error.args = {
-	label: "Oh, well. There's always next time.",
+	label: 'Oh, well. There\'s always next time.',
 	type: 'error',
 	autoHide: true,
 	position: 'bottom-right',
