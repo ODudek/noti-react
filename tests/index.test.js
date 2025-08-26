@@ -3,7 +3,7 @@ import { Notification } from '../src/Notification';
 import enzyme from 'enzyme';
 import Adapter from '@cfaester/enzyme-adapter-react-18';
 import { mount } from 'enzyme';
-import { act } from 'react-dom/test-utils';
+import { act } from 'react';
 
 enzyme.configure({ adapter: new Adapter() });
 
@@ -34,8 +34,13 @@ describe('Notification', () => {
     
     const wrapper = mount(<Notification {...props} autoHide={true} hideTime={1000} animationTime={100} />);
     
-    // Component should be visible initially
+    // Component should be visible initially with show animation
     expect(wrapper.find('.notification')).toHaveLength(1);
+    expect(wrapper.find('.notification').prop('style')).toEqual(
+      expect.objectContaining({
+        animation: expect.stringContaining('moveIn')
+      })
+    );
     
     // Fast forward time to trigger auto-hide
     await act(async () => {
@@ -43,14 +48,12 @@ describe('Notification', () => {
     });
     wrapper.update();
     
-    // Should start animation
-    await act(async () => {
-      jest.advanceTimersByTime(100); // animationTime
-    });
-    wrapper.update();
-    
-    // Component should be gone (returns null when shouldClose is true)
-    expect(wrapper.html()).toBe(null);
+    // Should start hide animation
+    expect(wrapper.find('.notification').prop('style')).toEqual(
+      expect.objectContaining({
+        animation: expect.stringContaining('moveOut')
+      })
+    );
     
     wrapper.unmount();
   });
@@ -90,18 +93,21 @@ describe('Notification', () => {
     const closeButton = wrapper.find('.close').at(0);
     expect(closeButton).toHaveLength(1);
     
+    // Initially should have show animation
+    expect(wrapper.find('.notification').prop('style')).toEqual(
+      expect.objectContaining({
+        animation: expect.stringContaining('moveIn')
+      })
+    );
+    
     await act(async () => {
       closeButton.simulate('click');
-    });
-    wrapper.update();
-    
-    // Fast forward animation time
-    await act(async () => {
+      // Immediately advance timers and allow React to process state updates
       jest.advanceTimersByTime(500);
     });
     wrapper.update();
     
-    // Component should be gone
+    // Component should be gone after animation completes
     expect(wrapper.html()).toBe(null);
     
     wrapper.unmount();
