@@ -1,0 +1,36 @@
+.notification-container {
+	position: fixed;
+	z-index: 9999;
+	display: flex;
+	flex-direction: column;
+	gap: 10px;
+	pointer-events: none;
+}
+
+.notification-container.top-left {
+	top: 15px;
+	left: 15px;
+}
+
+.notification-container.top-right {
+	top: 15px;
+	right: 15px;
+}
+
+.notification-container.bottom-left {
+	bottom: 15px;
+	left: 15px;
+	flex-direction: column-reverse;
+}
+
+.notification-container.bottom-right {
+	bottom: 15px;
+	right: 15px;
+	flex-direction: column-reverse;
+}
+
+.notification-container .notification {
+	pointer-events: all;
+	position: relative;
+	margin: 0;
+}
